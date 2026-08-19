@@ -1,3 +1,8 @@
+## Live Demo
+
+**Deployed Application:** https://wcb-report-generator.vercel.app/
+
+
 # WCB Report Generator
 
 ## Project Purpose
