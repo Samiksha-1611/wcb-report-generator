@@ -41,9 +41,6 @@ A multi-page application that recreates a complex 2-page expense request documen
 ## AI Assistance Disclosure
 This project was developed with AI assistance for rapid prototyping, robust CSS Grid alignment, dynamic DOM generation logic, and state management. The AI prompt history is strictly logged in the repository.
 
-## Video Demonstrations
-- [Video 1: Requirements, Assumptions, & Usage](#) *(Placeholder link)*
-- [Video 2: Code Structure, Challenges, & AI Usage](#) *(Placeholder link)*
 
 ## Repository Structure
 ```
