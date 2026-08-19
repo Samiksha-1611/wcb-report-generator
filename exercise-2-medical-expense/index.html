@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical & Travel Expense Request | Document Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Top Workspace Header -->
+    <header class="workspace-header noprint">
+        <div class="workspace-header-left">
+            <a href="../index.html" class="workspace-back">&larr; Documents</a>
+            <div class="workspace-title">
+                <span class="workspace-number">02</span>
+                <h1>Medical & Travel Expense Request</h1>
+            </div>
+        </div>
+        <div class="workspace-header-right">
+            <div class="dataset-control">
+                <label for="ctrl-dataset">Dataset:</label>
+                <select id="ctrl-dataset">
+                    <option value="original">Original Dataset (1 Row)</option>
+                    <option value="alternative">Alternative Dataset (2 Rows)</option>
+                    <option value="large">Large Dataset (10 Rows)</option>
+                </select>
+                <button id="btn-reset" class="btn-secondary">Reset</button>
+            </div>
+            <button class="btn-primary" onclick="window.print()">Print / Export PDF</button>
+        </div>
+    </header>
+
+    <div class="dev-layout">
+        <div class="control-panel noprint" id="control-panel">
+            <!-- Rendered by JS -->
+        </div>
+
+        <div class="preview-environment" id="report-container">
+            <!-- Rendered by JS (Multiple pages) -->
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

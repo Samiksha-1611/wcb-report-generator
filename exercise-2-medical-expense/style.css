@@ -1,0 +1,424 @@
+:root {
+    --brand-blue: #111827;
+    --brand-blue-hover: #4b5563;
+    --bg-app: #fcfbf9;
+    --bg-card: transparent;
+    --text-heading: #111827;
+    --text-body: #4b5563;
+    --text-muted: #9ca3af;
+    --border-light: rgba(0, 0, 0, 0.08);
+    --border-medium: rgba(0, 0, 0, 0.2);
+    --shadow-subtle: none;
+    --shadow-panel: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-app);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+/* Print Overrides */
+@page {
+    size: Letter;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        display: block;
+    }
+    .noprint { display: none !important; }
+    .dev-layout {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+    }
+    .preview-environment {
+        width: 8.5in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+    .report-page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 8.5in;
+        height: 11in;
+        min-height: 11in;
+        max-height: 11in;
+        box-sizing: border-box;
+        padding: 0.4in;
+        page-break-after: always;
+        break-after: page;
+        position: relative;
+        background: white;
+    }
+    .report-page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+    }
+}
+
+/* Workspace Header */
+.workspace-header {
+    background-color: var(--bg-app);
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.workspace-header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.workspace-back {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+.workspace-back:hover {
+    color: var(--text-heading);
+}
+
+.workspace-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 32px;
+    border-left: 1px solid var(--border-light);
+}
+
+.workspace-number {
+    font-size: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-heading);
+    border: 1px solid var(--border-medium);
+    padding: 2px 8px;
+    border-radius: 40px;
+}
+
+.workspace-title h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-heading);
+}
+
+.workspace-header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.dataset-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    padding-right: 16px;
+    border-right: 1px solid var(--border-light);
+}
+
+.dataset-control label {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.dataset-control select {
+    padding: 6px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-medium);
+    border-radius: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.875rem;
+}
+
+/* Layout */
+.dev-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    padding: 32px;
+    max-width: 1600px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Control Panel */
+.control-panel {
+    flex: 1 1 500px;
+    max-width: 700px;
+    min-width: 350px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 0;
+}
+
+.panel-header {
+    padding: 32px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-heading);
+}
+
+.panel-status {
+    font-size: 0.65rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-body);
+    padding: 4px 12px;
+    border: 1px solid var(--border-medium);
+    border-radius: 40px;
+}
+
+#editor-form {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.editor-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.editor-group legend {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-heading);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+/* Dynamic Rows for Ex 2 */
+.rows-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cp-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 0 0 12px 0;
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+}
+
+.cp-row label {
+    flex: 1 1 120px;
+}
+
+.cp-row label, .controls-grid label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-body);
+    gap: 6px;
+}
+
+.cp-row input, .controls-grid input {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-medium);
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 0.875rem;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    color: var(--text-heading);
+}
+
+.cp-row input:focus, .controls-grid input:focus {
+    outline: none;
+    border-color: var(--text-heading);
+}
+
+.btn-remove {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-medium);
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 36px; /* Align with inputs */
+}
+
+.btn-remove:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-add {
+    background-color: transparent;
+    color: var(--text-heading);
+    border: 1px solid var(--border-medium);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    margin-top: 8px;
+    align-self: flex-start;
+}
+
+.btn-add:hover {
+    background-color: var(--text-heading);
+    color: var(--bg-app);
+}
+
+.controls-actions {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: transparent;
+    color: var(--text-heading);
+    border: 1px solid var(--border-medium);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--text-heading);
+    color: var(--bg-app);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-body);
+    border: 1px solid var(--border-medium);
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--text-heading);
+    border-color: var(--text-heading);
+}
+
+/* Preview Environment (Screen only) */
+.preview-environment {
+    flex: 0 0 auto;
+    width: 8.5in;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* 
+ * ==========================================
+ * REPORT-SPECIFIC LAYOUT CSS (DO NOT CHANGE)
+ * ==========================================
+ */
+.report-page, .page-container {
+    background: white;
+    width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    max-height: 11in;
+    padding: 0.4in;
+    box-sizing: border-box;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    color: #000;
+    margin-bottom: 0;
+}
+.content-wrapper { flex-grow: 1; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 25px; }
+.header-left { display: flex; gap: 15px; width: 50%; }
+.logo-img { height: 55px; width: auto; object-fit: contain; }
+.header-address { font-size: 9pt; display: flex; flex-direction: column; line-height: 1.2; }
+.header-right { width: 50%; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
+.doc-title { font-size: 14pt; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+.info-label { font-weight: bold; }
+.section { margin-bottom: 12px; }
+.section-title { font-size: 11pt; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 2px; margin-bottom: 6px; margin-top: 10px; background-color: #f0f0f0; padding: 4px; }
+.report-table { width: 100%; border-collapse: collapse; font-size: 10pt; margin-top: 5px; }
+.report-table th, .report-table td { border: 1px solid #000; padding: 4px; text-align: left; vertical-align: top; }
+.report-table th { background-color: #e0e0e0; font-weight: bold; }
+.amount-col { text-align: right !important; }
+.total-row { font-weight: bold; background-color: #f0f0f0; }
+.footer { border-top: 1px solid #000; padding-top: 10px; font-size: 10pt; display: flex; justify-content: space-between; margin-top: auto; }

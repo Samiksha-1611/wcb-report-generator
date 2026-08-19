@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Studio | WCB Report Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <header class="app-header">
+            <div class="header-content">
+                <img src="exercise-1-worker-progress/assets/wcb-logo.png" alt="WCB Logo" class="wcb-brand">
+                <div class="header-title">Document Studio</div>
+            </div>
+        </header>
+
+        <main class="library-container">
+            <div class="library-header">
+                <h1>Document Library</h1>
+                <p class="library-description">This application dynamically recreates official WCB documents using structured data models. Select a template below to launch the document editor.</p>
+            </div>
+
+            <div class="document-index">
+                
+                <!-- Document 01 -->
+                <article class="doc-entry">
+                    <div class="doc-preview">
+                        <div class="doc-wireframe form-wireframe">
+                            <div class="wire-header"></div>
+                            <div class="wire-box"></div>
+                            <div class="wire-lines"></div>
+                            <div class="wire-lines"></div>
+                        </div>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-meta">
+                            <span class="doc-number">01</span>
+                            <span class="doc-status">Production Ready</span>
+                        </div>
+                        <h2>Worker Progress Report</h2>
+                        <p>A dynamic, 3-page official WCB document generator. Includes an interactive editor panel for managing worker status, return-to-work details, and recovery comments.</p>
+                        
+                        <div class="doc-metadata-tags">
+                            <span>Form: WP-01</span>
+                            <span>Pages: 3</span>
+                            <span>Engine: JS DOM</span>
+                        </div>
+                        
+                        <a href="exercise-1-worker-progress/index.html" class="btn-open">Launch Editor &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Document 02 -->
+                <article class="doc-entry">
+                    <div class="doc-preview">
+                        <div class="doc-wireframe table-wireframe">
+                            <div class="wire-header"></div>
+                            <div class="wire-table">
+                                <div class="wire-row header-row"></div>
+                                <div class="wire-row"></div>
+                                <div class="wire-row"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-meta">
+                            <span class="doc-number">02</span>
+                            <span class="doc-status">Production Ready</span>
+                        </div>
+                        <h2>Medical & Travel Expense Request</h2>
+                        <p>A complex multi-page expense tracking document. Features fully dynamic data tables with add/remove row capabilities and auto-calculating monetary and mileage totals.</p>
+                        
+                        <div class="doc-metadata-tags">
+                            <span>Form: MED-02</span>
+                            <span>Pages: 2</span>
+                            <span>Engine: JS DOM</span>
+                        </div>
+                        
+                        <a href="exercise-2-medical-expense/index.html" class="btn-open">Launch Editor &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>Designed and built for professional document generation.</p>
+        </footer>
+    </div>
+</body>
+</html>

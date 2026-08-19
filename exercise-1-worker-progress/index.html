@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Progress Report | Document Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Top Workspace Header -->
+    <header class="workspace-header noprint">
+        <div class="workspace-header-left">
+            <a href="../index.html" class="workspace-back">&larr; Documents</a>
+            <div class="workspace-title">
+                <span class="workspace-number">01</span>
+                <h1>Worker Progress Report</h1>
+            </div>
+        </div>
+        <div class="workspace-header-right">
+            <div class="dataset-control">
+                <label for="ctrl-dataset">Dataset:</label>
+                <select id="ctrl-dataset">
+                    <option value="original">Original Dataset</option>
+                    <option value="alternative">Alternative Dataset</option>
+                </select>
+                <button id="btn-reset" class="btn-secondary">Reset</button>
+            </div>
+            <button class="btn-primary" onclick="window.print()">Print / Export PDF</button>
+        </div>
+    </header>
+
+    <!-- Development Layout wrapper -->
+    <div class="dev-layout">
+        
+        <!-- Control panel (Editor) -->
+        <div class="control-panel noprint">
+            <div class="panel-header">
+                <h2>Editor Panel</h2>
+                <span class="panel-status">Unsaved Changes</span>
+            </div>
+            
+            <form id="editor-form" onsubmit="event.preventDefault();">
+                
+                <fieldset class="editor-group">
+                    <legend>Worker & Document Info</legend>
+                    <div class="controls-grid">
+                        <label>Worker Name: <input type="text" id="ctrl-workerName"></label>
+                        <label>Claim Number: <input type="text" id="ctrl-claimNumber"></label>
+                        <label>Report Date: <input type="text" id="ctrl-reportDate"></label>
+                        <label>Worker App ID: <input type="text" id="ctrl-workerAppId"></label>
+                        <label>Submitted Date: <input type="text" id="ctrl-submitted"></label>
+                        <label>Information True?
+                            <select id="ctrl-certifyTrue">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </label>
+                        <label>Privacy Understood?
+                            <select id="ctrl-privacyNotice">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="editor-group">
+                    <legend>Return to Work</legend>
+                    <div class="controls-grid">
+                        <label>RTW Status: 
+                            <select id="ctrl-rtwStatus">
+                                <option value="not-missed">Not missed time</option>
+                                <option value="not-returned">Not returned</option>
+                                <option value="returned">Returned</option>
+                            </select>
+                        </label>
+                        <label>RTW Date: <input type="text" id="ctrl-rtwDate"></label>
+                        <label>Working Status:
+                            <select id="ctrl-workingStatus">
+                                <option value="full-regular">Full duties, regular hours</option>
+                                <option value="full-reduced">Full duties, reduced hours</option>
+                                <option value="modified-regular">Modified duties, regular hours</option>
+                                <option value="modified-reduced">Modified duties, reduced hours</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </label>
+                        <label>Expected RTW Date: <input type="text" id="ctrl-expectedReturnDate"></label>
+                        <label>Employer Contact: <input type="text" id="ctrl-employerContact"></label>
+                        <label>Contact Date: <input type="text" id="ctrl-employerContactDate"></label>
+                    </div>
+                    <div class="controls-textareas">
+                        <label>RTW Comments:
+                            <textarea id="ctrl-rtwComments"></textarea>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="editor-group">
+                    <legend>Recovery</legend>
+                    <div class="controls-grid">
+                        <label>Recovery Status:
+                            <select id="ctrl-recoveryStatus">
+                                <option value="not-fully-recovered">Not fully recovered</option>
+                                <option value="fully-recovered">Fully recovered</option>
+                            </select>
+                        </label>
+                        <label>Pain Scale (1-10):
+                            <select id="ctrl-painScale">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="controls-textareas">
+                        <label>Concerns:
+                            <textarea id="ctrl-concerns"></textarea>
+                        </label>
+                        <label>Recovery Comments:
+                            <textarea id="ctrl-recoveryComments"></textarea>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="editor-group">
+                    <legend>Treatment</legend>
+                    <div class="controls-grid">
+                        <label>Continuing Treatment:
+                            <select id="ctrl-medTreatmentStatus">
+                                <option value="not-continuing">Not continuing</option>
+                                <option value="continuing">Continuing</option>
+                            </select>
+                        </label>
+                        <label>Provider Type: <input type="text" id="ctrl-medProviderType"></label>
+                        <label>Chiro/Physio Freq: <input type="text" id="ctrl-chiroFreq"></label>
+                        
+                        <label>Last Treatment Date: <input type="text" id="ctrl-lastTreatmentDate"></label>
+                        <label>Last Provider: <input type="text" id="ctrl-lastProviderName"></label>
+                        <label>Next Treatment Date: <input type="text" id="ctrl-nextTreatmentDate"></label>
+                        <label>Next Provider: <input type="text" id="ctrl-nextProviderName"></label>
+                        
+                        <label>Medication Status:
+                            <select id="ctrl-medicationStatus">
+                                <option value="not-taking">Not taking</option>
+                                <option value="taking">Taking</option>
+                            </select>
+                        </label>
+                        <label>Medication Name: <input type="text" id="ctrl-medicationName"></label>
+                        
+                        <label>Home Exercises:
+                            <select id="ctrl-homeExercisesStatus">
+                                <option value="not-doing">Not doing</option>
+                                <option value="doing">Doing</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="controls-textareas">
+                        <label>List Exercises:
+                            <textarea id="ctrl-exercisesList"></textarea>
+                        </label>
+                        <label>Other Information:
+                            <textarea id="ctrl-otherInfo"></textarea>
+                        </label>
+                    </div>
+                </fieldset>
+            
+                <div class="controls-actions">
+                    <button id="btn-update" class="btn-primary">Update Report Preview</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-environment" id="report-container">
+            <!-- Rendered by JavaScript -->
+        </div>
+        
+    </div> <!-- end dev-layout -->
+    
+    <script src="script.js"></script>
+</body>
+</html>
